@@ -1,0 +1,36 @@
+package kishan1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FormMethods {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.makemytrip.com/");
+		driver.navigate().refresh();
+		driver.findElement(By.xpath(".//*[@id='htmlDoc']/body/div[11]/div/a[1]")).click();
+		driver.findElement(By.xpath(".//*[@id='start_date_sec']/span[3]")).click();
+		driver.findElement(By.xpath(".//*[@id='ui-datepicker-div']/div[2]/table/tbody/tr[5]/td[5]/a")).click();
+		int i=0;
+		while(i<5){
+			driver.findElement(By.xpath(".//*[@id='adult_count']/a[2]")).click();
+			i++;
+		}
+	
+		//System.out.println("Before clicking on multi city the radio button");
+		//System.out.println(driver.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+		//driver.findElement(By.xpath(".//*[@id='multi_city_button']/span")).click();
+		//System.out.println("After clicking on multi city the radio button");
+		//System.out.println(driver.findElement(By.xpath(".//*[@id='return_date_sec']")).isDisplayed());
+		//System.out.println(driver.findElement(By.xpath(".//*[@id='wiet_row']/div[1]/div/div[3]/div/div[2]")).isDisplayed());
+		System.out.println(driver.findElement(By.xpath(".//*[@id='responsive_bottom_noblocksit']/div[1]/div[1]/div[2]/h3")).getText());
+        int count=driver.findElements(By.xpath(".//*[@id='widt_row']/div[1]/div/div[3]/div/div[2]")).size();
+        if(count==0){
+        	System.out.println("verified");
+        }
+	}
+
+}
