@@ -1,0 +1,52 @@
+package SeleniumWorks;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class LimitingScope {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://www.ebay.com/");
+		
+		//page links
+		System.out.println("Links in the page");
+		System.out.println(driver.findElements(By.tagName("a")).size());
+		
+		
+		//links in the footer section
+		WebElement footer = driver.findElement(By.xpath("//*[@id='glbfooter']"));
+		System.out.println("Links in the footer page");
+		System.out.println(footer.findElements(By.tagName("a")).size());
+		
+		
+		//links in footer in particular section
+		WebElement col = driver.findElement(By.xpath(".//*[@id='gf-BIG']/table/tbody/tr/td[2]/ul"));
+		System.out.println("Links in section of footer page");
+		System.out.println(col.findElements(By.tagName("a")).size());
+		
+		
+		//link texts in the footer section of the page
+		for(int i=0; i<col.findElements(By.tagName("a")).size(); i++)
+		{
+			//System.out.println(col.findElements(By.tagName("a")).get(i).getText());
+			//we are finding the links in the site map
+			if(col.findElements(By.tagName("a")).get(i).getText().contains("Site map"))
+			{
+				//System.out.println("get title");
+				col.findElements(By.tagName("a")).get(i).click();
+				break;
+			}
+			
+		}
+		System.out.println(driver.getTitle());
+		//                                                            Assert.assertArrayEquals(expecteds, actuals);
+	
+	
+	}
+		
+	}
