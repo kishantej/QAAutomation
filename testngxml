@@ -1,0 +1,26 @@
+<suite name="Smoke test" verbose="1">
+    <test name="first test">
+        <Classes>
+            
+            
+        <class name="testscripts.TestngMaven" >
+            
+            
+            <methods>
+                
+                
+                <include name="smoke test">
+                    
+                </include>
+                    
+                   
+              
+            </methods>
+            
+            
+            
+        </class>   
+            </Classes>
+        </test>
+    
+    </suite>
