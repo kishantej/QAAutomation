@@ -1,0 +1,56 @@
+package stepdefintions;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class Alogin {
+	
+	
+	public WebDriver driver;
+	@Given("^user is on the login window$")
+	public void user_is_on_the_login_window() throws Throwable {
+	    // open the application and navigate to sign in  page
+		 driver = new FirefoxDriver();
+		driver.get("http://www.amazon.com");
+		driver.findElement(By.xpath(".//*[@id='nav-link-yourAccount']/span[1]")).click();
+	    throw new PendingException();
+	}
+	 ;
+	
+	@When("^user is on the sighin page$")
+	public void user_is_on_the_sighin_page() throws Throwable {
+	    // user clicks on sigh in
+		
+		 driver.findElement(By.xpath(".//*[@id='signInSubmit']")).click();
+		
+	    throw new PendingException();
+	}
+
+	@Then("^user should see the error message \"([^\"]*)\"in username field$")
+	public void user_should_see_the_error_message_in_username_field(String arg1) throws Throwable {
+	    // 
+		WebElement errtext=driver.findElement(By.xpath(".//*[@id='ap_email']"));
+		
+		System.out.println("missing email missing alert"+errtext);
+	    throw new PendingException();
+	}
+
+	@And("^user should see the error message \"([^\"]*)\" under password field$")
+	public void user_should_see_the_error_message_under_password_field(String arg1) 
+	throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		WebElement errtext1=driver.findElement(By.xpath(".//*[@id='ap_password']"));
+		System.out.println("missing password alert words"+errtext1);
+	    throw new PendingException();
+	}
+
+
+}
