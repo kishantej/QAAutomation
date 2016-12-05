@@ -1,0 +1,73 @@
+package kishan;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Sravan 
+{
+	public static void openBrowser (String browser,String url)
+	{
+		if(browser.equalsIgnoreCase("FireFox"))
+		{
+			WebDriver driver = new FirefoxDriver();
+			driver.get(url);
+			Actions Computer1 = new Actions(driver);
+			Computer1.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+			System.out.println(driver.getTitle());
+			String actual = driver.getTitle();
+			String expected = "Selenium - Web Browser Automation";
+			if(actual.equals(expected))
+			{
+				System.out.println("testcase pass");
+			}
+			else
+		
+				System.out.println("testcase fail");
+			driver.close();
+		}
+		else if(browser.equalsIgnoreCase("chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\Reshma\\Downloads\\selenium\\chromedriver.exe");
+			WebDriver driver1 = new ChromeDriver();
+			driver1.get(url);
+			Actions Computer1 = new Actions(driver1);
+			Computer1.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+			System.out.println(driver1.getTitle());
+			String actual = driver1.getTitle();
+			String expected = "Selenium - Web Browser Automation";
+			if(actual.equals(expected))
+			{
+				System.out.println("testcase pass");
+			}
+			else
+		
+				System.out.println("testcase fail");
+			driver1.close();
+		}
+		else if(browser.equalsIgnoreCase("ie"))
+		{
+			System.setProperty("webdriver.ie.driver","C:\\Users\\Reshma\\Downloads\\selenium\\IEDriverServer.exe");
+			WebDriver driver2 = new InternetExplorerDriver();
+			driver2.get(url);
+			Actions Computer1 = new Actions(driver2);
+			Computer1.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+			System.out.println(driver2.getTitle());
+			String actual = driver2.getTitle();
+			String expected = "Selenium - Web Browser Automation";
+			if(actual.equals(expected))
+			{
+				System.out.println("testcase pass");
+			}
+			else
+		
+				System.out.println("testcase fail");
+			//driver2.close();
+			
+	}
+
+}
+}
