@@ -1,0 +1,47 @@
+package Ambu;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class SwitchSrav
+{
+	public static void openBrowser (String browser,String url)
+	{
+		switch (browser)
+		{
+		//Firefox browser
+		case "FireFox":WebDriver driver = new FirefoxDriver();
+		driver.get(url);
+		//Actions Computer = new Actions(driver);
+		//Computer.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+		//System.out.println(driver.getTitle());
+		  driver.close();
+		break;
+		//google chrome browser
+		case "Chrome":System.setProperty("webdriver.chrome.driver","C:\\Users\\Reshma\\Downloads\\selenium\\chromedriver.exe");
+		WebDriver driver1 = new ChromeDriver();
+		driver1.get(url);
+		Actions Computer1 = new Actions(driver1);
+		Computer1.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+		System.out.println(driver1.getTitle());
+		//String actual = driver1.getTitle();
+		//String expected = "Selenium - Web Browser Automation";
+		
+		driver1.close();
+		break;
+		//internet explorer browser*/
+		case "ie":
+		System.setProperty("webdriver.ie.driver","C:\\Users\\Reshma\\Downloads\\selenium\\IEDriverServer.exe");
+		WebDriver driver2 = new InternetExplorerDriver();
+		driver2.get(url);
+		//Actions Computer2 = new Actions(driver2);
+		//Computer2.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+		driver2.close();
+		break;
+		}
+	}
+}
