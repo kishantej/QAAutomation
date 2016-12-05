@@ -1,0 +1,7 @@
+Feature: Verify Login Functionality
+Scenario: without entering user name and password
+Given user is on the login window
+When user is on the sighin page
+Then user should see the error message "Enter your email or mobile phone number"in username field
+And user should see the error message "Enter the password" under password field
+
